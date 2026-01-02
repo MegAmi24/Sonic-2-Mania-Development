@@ -59,11 +59,11 @@ void Staircase::StageLoad()
     Soundboard::LoadSfx(Staircase::SfxCheck_HitBlocks, nullptr);
 }
 
-Soundboard::SoundInfo Staircase::SfxCheck_HitBlocks()
+SoundInfo Staircase::SfxCheck_HitBlocks()
 {
     SoundFX hitBlocksSFX;
     hitBlocksSFX.Get("CPZ/CPZ2HitBlocks.wav");
-    Soundboard::SoundInfo info = {};
+    SoundInfo info = {};
     info.sfx                   = hitBlocksSFX;
     info.loopPoint             = true;
 

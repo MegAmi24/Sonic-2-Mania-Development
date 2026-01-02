@@ -499,10 +499,10 @@ void OptionsMenu::SetDefaultMappings()
     controllerInfo[Input::CONT_P1].keyRight.keyMap  = Input::KEYMAP_RIGHT;
     controllerInfo[Input::CONT_P1].keyA.keyMap      = Input::KEYMAP_A;
     controllerInfo[Input::CONT_P1].keyB.keyMap      = Input::KEYMAP_S;
-    controllerInfo[Input::CONT_P1].keyC.keyMap      = Input::KEYMAP_NO_MAPPING;
+    controllerInfo[Input::CONT_P1].keyC.keyMap      = Input::INPUT_NONE;
     controllerInfo[Input::CONT_P1].keyX.keyMap      = Input::KEYMAP_Q;
     controllerInfo[Input::CONT_P1].keyY.keyMap      = Input::KEYMAP_W;
-    controllerInfo[Input::CONT_P1].keyZ.keyMap      = Input::KEYMAP_NO_MAPPING;
+    controllerInfo[Input::CONT_P1].keyZ.keyMap      = Input::INPUT_NONE;
     controllerInfo[Input::CONT_P1].keyStart.keyMap  = Input::KEYMAP_RETURN;
     controllerInfo[Input::CONT_P1].keySelect.keyMap = Input::KEYMAP_TAB;
 
@@ -512,10 +512,10 @@ void OptionsMenu::SetDefaultMappings()
     controllerInfo[Input::CONT_P2].keyRight.keyMap  = Input::KEYMAP_NUMPAD6;
     controllerInfo[Input::CONT_P2].keyA.keyMap      = Input::KEYMAP_J;
     controllerInfo[Input::CONT_P2].keyB.keyMap      = Input::KEYMAP_K;
-    controllerInfo[Input::CONT_P2].keyC.keyMap      = Input::KEYMAP_NO_MAPPING;
+    controllerInfo[Input::CONT_P2].keyC.keyMap      = Input::INPUT_NONE;
     controllerInfo[Input::CONT_P2].keyX.keyMap      = Input::KEYMAP_U;
     controllerInfo[Input::CONT_P2].keyY.keyMap      = Input::KEYMAP_I;
-    controllerInfo[Input::CONT_P2].keyZ.keyMap      = Input::KEYMAP_NO_MAPPING;
+    controllerInfo[Input::CONT_P2].keyZ.keyMap      = Input::INPUT_NONE;
     controllerInfo[Input::CONT_P2].keyStart.keyMap  = Input::KEYMAP_OEM_4;
     controllerInfo[Input::CONT_P2].keySelect.keyMap = Input::KEYMAP_OEM_6;
 

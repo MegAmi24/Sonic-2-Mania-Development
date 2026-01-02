@@ -1590,5 +1590,11 @@
     <ClInclude Include="Objects\Menu\UIVideo.hpp">
       <Filter>Source Files\Objects\Menu</Filter>
     </ClInclude>
+    <ClInclude Include="All.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PublicFunctions.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -39,11 +39,13 @@ void EggDriller::Update()
 
     // this is a very weird way of solving(?) an issue where drawPos.y would be 0 no matter what for some reason??? ig its bc some entities dont have
     // the wheel running which is where the drawpos stuff happens
-    if (!car->state.Matches(&EggDriller::Car_Explode) && !car->state.Matches(&EggDriller::Car_Destroyed)) {
-        if (this->xOffset == -0xC0000 || this->xOffset == 0x1C0000) { // this gets the two front wheels, as these are their matching xoffsets,
-                                                                      // everything else shouldnt have these same values
-            car->position.y =
-                this->position.y; // sets the y position of the car back to the wheel position (this-> is wheel here due to the previous check)
+    if (car) {
+        if (!car->state.Matches(&EggDriller::Car_Explode) && !car->state.Matches(&EggDriller::Car_Destroyed)) {
+            if (this->xOffset == -0xC0000 || this->xOffset == 0x1C0000) { // this gets the two front wheels, as these are their matching xoffsets,
+                                                                          // everything else shouldnt have these same values
+                car->position.y =
+                    this->position.y; // sets the y position of the car back to the wheel position (this-> is wheel here due to the previous check)
+            }
         }
     }
 }

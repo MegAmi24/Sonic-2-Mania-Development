@@ -114,7 +114,7 @@ void SaveGame::RecallCollectedEntities()
 
             case SaveGame::RecallDisabled: {
                 Entity *entity  = GameObject::Get<Entity>(e);
-                entity->classID = TYPE_NONE;
+                entity->classID = TYPE_BLANK;
                 entity->active  = ACTIVE_DISABLED;
                 break;
             }
@@ -153,10 +153,10 @@ void SaveGame::LoadFileCB(int32 status)
     if (sVars->loadCallback) {
         void *store = sceneInfo->entity;
         if (sVars->loadEntityPtr)
-            sceneInfo->entity = sVars->loadEntityPtr;
+            sceneInfo->entity = (Entity *)sVars->loadEntityPtr;
 
         sVars->loadCallback(success);
-        sceneInfo->entity = store;
+        sceneInfo->entity = (Entity *)store;
 
         sVars->loadCallback  = nullptr;
         sVars->loadEntityPtr = nullptr;
@@ -168,11 +168,11 @@ void SaveGame::SaveFileCB(int32 status)
     if (sVars->saveCallback) {
         void *store = sceneInfo->entity;
         if (sVars->saveEntityPtr)
-            sceneInfo->entity = sVars->saveEntityPtr;
+            sceneInfo->entity = (Entity *)sVars->saveEntityPtr;
 
         sVars->saveCallback(status == STATUS_OK);
 
-        sceneInfo->entity = store;
+        sceneInfo->entity = (Entity *)store;
 
         sVars->saveCallback  = nullptr;
         sVars->saveEntityPtr = nullptr;

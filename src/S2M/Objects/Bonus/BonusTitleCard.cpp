@@ -110,6 +110,8 @@ void BonusTitleCard::SetupTitleWords()
     this->zoneName.SetSpriteString(sVars->aniFrames, 1);
 }
 
+void BonusTitleCard::Draw_SlidingIn() {}
+
 #if RETRO_INCLUDE_EDITOR
 void BonusTitleCard::EditorDraw() {}
 

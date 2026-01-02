@@ -82,9 +82,9 @@ struct OOZSetup : RSDK::GameObject::Entity {
     // FUNCTIONS
     // ==============================
 
-    static Soundboard::SoundInfo SfxCheck_Flame2();
-    static Soundboard::SoundInfo SfxCheck_Slide();
-    static Soundboard::SoundInfo SfxCheck_OilSwim();
+    static SoundInfo SfxCheck_Flame2();
+    static SoundInfo SfxCheck_Slide();
+    static SoundInfo SfxCheck_OilSwim();
 
     void Draw_Flames();
     void HandleActiveFlames();

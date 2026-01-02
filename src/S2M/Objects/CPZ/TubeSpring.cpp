@@ -42,7 +42,7 @@ void TubeSpring::Create(void *data)
     this->animator.SetAnimation(sVars->aniFrames, 0, true, 0);
     this->drawGroup      = Zone::sVars->objectDrawGroup[1];
     this->velocity.y     = !this->type ? -0x100000 : -0xA8000;
-    this->type           = Spring::TubeSpring;
+    this->type           = TubeSpring::Tube;
     this->animator.speed = 0;
     this->state.Set(&TubeSpring::State_Idle);
 
@@ -68,7 +68,7 @@ void TubeSpring::Spring_State_Vertical()
     if (this->direction == FLIP_NONE) {
         for (auto player : GameObject::GetEntities<Player>(FOR_ACTIVE_ENTITIES)) {
             if ((!this->planeFilter || player->collisionPlane == ((uint8)(this->planeFilter - 1) & 1)) && this->interaction) {
-                int32 side = ((this->type == Spring::TubeSpring && player->velocity.y < -0x50000) || this->passThrough)
+                int32 side = ((this->type == Spring::Tube && player->velocity.y < -0x50000) || this->passThrough)
                                  ? player->CheckCollisionPlatform(this, &this->hitbox)
                                  : player->CheckCollisionBox(this, &this->hitbox);
 
@@ -143,7 +143,7 @@ void TubeSpring::Spring_State_Vertical()
 
             for (auto player : GameObject::GetEntities<Player>(FOR_ACTIVE_ENTITIES)) {
                 if ((!this->planeFilter || player->collisionPlane == ((uint8)(this->planeFilter - 1) & 1)) && this->interaction) {
-                    int32 side = ((this->type == Spring::TubeSpring && player->velocity.y > 0x50000) || this->passThrough)
+                    int32 side = ((this->type == Spring::Tube && player->velocity.y > 0x50000) || this->passThrough)
                                      ? (player->CheckCollisionPlatform(this, &this->hitbox) * C_BOTTOM)
                                      : player->CheckCollisionBox(this, &this->hitbox);
 

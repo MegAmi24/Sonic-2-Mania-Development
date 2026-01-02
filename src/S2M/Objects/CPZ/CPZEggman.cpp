@@ -63,7 +63,7 @@ void CPZEggman::Update()
         }
     }
 
-    if (this->exploding == true) {
+    if (this->exploding) {
         if ((Zone::sVars->timer & 7) == 0) {
             Vector2 explosionPos;
             explosionPos.x       = this->position.x + Math::Rand(TO_FIXED(-24), TO_FIXED(24));

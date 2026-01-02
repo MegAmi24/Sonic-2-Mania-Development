@@ -77,7 +77,7 @@ void RailRocket::Update()
         }
         else {
             if (currentPlayer->CheckCollisionTouch(this, &sVars->activeHandleHitbox)) {
-                if (currentPlayer->jumpPress == true) {
+                if (currentPlayer->jumpPress) {
                     currentPlayer->animator.SetAnimation(currentPlayer->aniFrames, Player::ANI_JUMP, false, 0);
                     currentPlayer->state.Set(&Player::State_Air);
                     currentPlayer->velocity.y = -0x40000;
@@ -228,7 +228,7 @@ void RailRocket::State_AwaitPlayer()
     }
     this->handleAngle += this->handleAngleVel;
 
-    if (this->hasPlayer == true) {
+    if (this->hasPlayer) {
         this->groundVel = -0x80000;
         this->state.Set(&RailRocket::State_MoveToTarget);
         sVars->sfxLaunch.Play(false, 255);

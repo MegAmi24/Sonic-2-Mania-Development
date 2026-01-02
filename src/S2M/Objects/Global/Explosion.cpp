@@ -48,6 +48,17 @@ void Explosion::StageLoad()
     sVars->sfxExplosion.Get("Stage/Explosion.wav");
 }
 
+Explosion *Explosion::Spawn(RSDK::GameObject::Entity *parent, RSDK::Vector2 position, uint8 drawOrder, int16 rangeX, int16 rangeY, int16 timer,
+                            int16 tablePos, uint8 childType)
+{
+    return nullptr;
+}
+
+void Explosion::SpawnGroup(RSDK::GameObject::Entity *parent, RSDK::Vector2 *offset, uint16 count, RSDK::Vector2 *origin,
+                           RSDK::SpriteAnimation *aniFrames, uint16 *aniIDs, uint16 *timers, uint8 drawOrder, bool32 isHarmful)
+{
+}
+
 #if RETRO_INCLUDE_EDITOR
 void Explosion::EditorDraw()
 {

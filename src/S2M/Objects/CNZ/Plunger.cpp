@@ -16,7 +16,7 @@ RSDK_REGISTER_OBJECT(Plunger);
 void Plunger::Update()
 {
     if (this->type == Diagonal) {
-        if (this->plungerActive == true) {
+        if (this->plungerActive) {
             if (this->compression < 0x100000) {
                 this->compression += 0x4000;
             }
@@ -103,7 +103,7 @@ void Plunger::Update()
         // the first loop checks if the player is on the plunger via *box*, setting onGround
         // this isn't erased anywhere else so the player keeps staying on ground in an air state so all momentum gets cancelled in a frame
         // easiest fix is to set onground to false manually
-        if (this->plungerActive == true) {
+        if (this->plungerActive) {
             if (this->compression < 0x210000) {
                 this->compression += 0x4000;
             }

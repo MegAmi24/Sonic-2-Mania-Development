@@ -126,7 +126,7 @@ void MetalArm::StageLoad()
     Soundboard::LoadSfx(MetalArm::SfxCheck_MetalArm, nullptr);
 }
 
-Soundboard::SoundInfo MetalArm::SfxCheck_MetalArm()
+SoundInfo MetalArm::SfxCheck_MetalArm()
 {
     int32 activeCount = 0;
 
@@ -139,7 +139,7 @@ Soundboard::SoundInfo MetalArm::SfxCheck_MetalArm()
     //return activeCount > 0;
     SoundFX armSFX;
     armSFX.Get("DEZ/MetalArm.wav");
-    Soundboard::SoundInfo info = {};
+    SoundInfo info = {};
     info.playFlags             = activeCount > 0;
     info.sfx                   = armSFX;
     info.loopPoint             = true;

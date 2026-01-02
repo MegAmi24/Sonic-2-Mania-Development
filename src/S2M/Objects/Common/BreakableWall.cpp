@@ -768,6 +768,8 @@ void BreakableWall::Break(uint8 direction)
         this->position = storePos;
 }
 
+void BreakableWall::GiveScoreBonus(Player *player) {}
+
 #if RETRO_INCLUDE_EDITOR
 void BreakableWall::EditorDraw()
 {

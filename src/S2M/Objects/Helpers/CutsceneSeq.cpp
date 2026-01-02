@@ -24,7 +24,7 @@ void CutsceneSeq::LateUpdate()
     if (this->currentState) {
         sceneInfo->entity    = this->activeEntity;
         bool32 finishedState = this->currentState(this);
-        sceneInfo->entity    = (void *)this;
+        sceneInfo->entity    = (Entity *)this;
 
         ++this->timer;
         if (finishedState) {
@@ -104,7 +104,7 @@ void CutsceneSeq::NewState(int32 nextState)
 void CutsceneSeq::SetSkipType(uint8 type, void (*callback)())
 {
     CutsceneSeq *seq = GameObject::Get<CutsceneSeq>(SLOT_CUTSCENESEQ);
-    if (seq->classID != TYPE_NONE) {
+    if (seq->classID != TYPE_BLANK) {
         seq->skipType     = type;
         seq->skipCallback = callback;
     }

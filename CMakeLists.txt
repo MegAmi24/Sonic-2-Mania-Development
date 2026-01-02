@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.7)
+cmake_minimum_required(VERSION 3.10)
 
 project(Sonic2Mania)
 
@@ -12,7 +12,14 @@ option(MOD_INCLUDE_EDITOR "Whether or not to include editor functions. Defaults 
 
 option(DISCORD_RPC "Compile with Discord RPC or not" OFF)
 
-file(GLOB OBJECTS RELATIVE ${CMAKE_SOURCE_DIR} src/S2M/Objects/*/*.cpp)
+option(GAME_INCREMENTAL_BUILD "Whether or not to build all objects separately (for quicker dev-->build iterations). Defaults to false." OFF)
+
+if(GAME_INCREMENTAL_BUILD)
+    include(src/Objects.cmake)
+    set(OBJECTS ${GENERATED_SOURCES})
+else()
+    set(OBJECTS src/S2M/Objects/All.cpp)
+endif()
 
 add_library(Sonic2Mania SHARED
     src/GameAPI/CPP/GameAPI/Game.cpp
@@ -57,6 +64,7 @@ target_compile_definitions(Sonic2Mania PRIVATE
     RETRO_INCLUDE_EDITOR=$<BOOL:${MOD_INCLUDE_EDITOR}>
     GAME_TYPE=0
     GAME_NO_GLOBALS=1
+    GAME_CUSTOMLINKLOGIC=1
     _CRT_SECURE_NO_WARNINGS=1
     DISCORD_RPC=$<BOOL:${DISCORD_RPC}>
 )

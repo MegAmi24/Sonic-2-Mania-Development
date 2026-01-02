@@ -95,7 +95,7 @@ void MainMenu::Initialize()
 
     for (auto control : GameObject::GetEntities<UIControl>(FOR_ALL_ENTITIES)) {
         text.Set("Main Menu");
-        if (text.Compare(&text, &control->tag, false)) {
+        if (String::Compare(&text, &control->tag, false)) {
             MainMenu::sVars->menuControl = control;
             control->backPressCB.Set(&MainMenu::BackPressCB_ReturnToTitle);
         }

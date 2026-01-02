@@ -68,7 +68,7 @@ struct FXAudioPan : RSDK::GameObject::Entity {
     // FUNCTIONS
     // ==============================
 
-    static Soundboard::SoundInfo CheckCB();
+    static SoundInfo CheckCB();
     static void UpdateCB(int32 sfxID);
 
     uint8 PlayDistancedSfx(RSDK::SoundFX sfx, uint32 loopPoint, uint32 priority, RSDK::Vector2 position);

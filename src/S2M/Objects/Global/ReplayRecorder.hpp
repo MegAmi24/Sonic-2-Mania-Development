@@ -65,8 +65,8 @@ struct ReplayRecorder : RSDK::GameObject::Entity {
         RSDK::Vector2 position;
         RSDK::Vector2 velocity;
         int32 rotation;
-        uint8 anim;
-        uint8 frame;
+        uint16 anim;
+        uint16 frame;
     };
 
     struct Replay {
@@ -132,8 +132,8 @@ struct ReplayRecorder : RSDK::GameObject::Entity {
     RSDK::Vector2 storedVel;
     int32 storedRotation;
     int32 storedSpeed;
-    uint8 storedAnim;
-    uint16 storedFrame;
+    uint16 storedAnim;
+    uint32 storedFrame;
     int32 ghostAlpha;
 
     // ==============================

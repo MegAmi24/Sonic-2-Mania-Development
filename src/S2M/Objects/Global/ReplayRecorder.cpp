@@ -1029,11 +1029,11 @@ void ReplayRecorder::PackFrame(ReplayFrame *recording)
     if (replayPtr->header.frameCount) {
         uint32 frameCount                  = replayPtr->header.frameCount;
         float avg                          = replayPtr->header.averageFrameSize;
-        float sizef                        = size;
+        float sizef                        = float(size);
         replayPtr->header.averageFrameSize = ((avg * frameCount) + sizef) / (frameCount + 1);
     }
     else {
-        replayPtr->header.averageFrameSize = size;
+        replayPtr->header.averageFrameSize = float(size);
     }
 
     replayPtr->header.bufferSize += size;

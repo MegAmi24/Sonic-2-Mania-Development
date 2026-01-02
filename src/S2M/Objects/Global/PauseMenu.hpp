@@ -43,7 +43,7 @@ struct PauseMenu : RSDK::GameObject::Entity {
     int32 centerSpeed;
     int32 tintAlpha;
     UIControl *manager;
-    uint8 triggerPlayer;
+    uint16 triggerPlayer;
     bool32 disableRestart;
     int32 buttonCount;
     uint8 buttonIDs[PAUSEMENU_BUTTON_COUNT];

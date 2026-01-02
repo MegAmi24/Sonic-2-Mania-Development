@@ -447,6 +447,8 @@ void HP_Message::State_RingReminderTrigger()
     }
 }
 
+void HP_Message::State_GetRings() {}
+
 // Draw States
 void HP_Message::Draw_Message()
 {

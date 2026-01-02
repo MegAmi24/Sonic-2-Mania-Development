@@ -54,7 +54,7 @@ struct PetalPile : RSDK::GameObject::Entity {
     RSDK::Vector2 pileSize;
     RSDK::Vector2 maxSpeed;
     bool32 emitterMode;
-    uint8 layerID;
+    uint16 layerID;
     RSDK::Vector2 velStore;
     RSDK::Vector2 distance; // dunno if this is actually a vec2 but the .y is always set to 0 so maybe?
     int32 petalVel;

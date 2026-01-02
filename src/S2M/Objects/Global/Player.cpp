@@ -2516,44 +2516,46 @@ void Player::HandleSuperColors_Sonic(bool32 updatePalette)
             // TODO: make this not a clone of super maybe ?
 
             if (this->superBlendState & 2) {
-                paletteBank[0].SetLimitedFade(&sVars->activeHyperSonicPalette[6], &sVars->activeHyperSonicPalette[12], this->superBlendAmount,
+                paletteBank[0].SetLimitedFade((uint8)&sVars->activeHyperSonicPalette[6], (uint8)&sVars->activeHyperSonicPalette[12],
+                                              this->superBlendAmount,
                                               this->superColorIndex, this->superColorCount);
 
                 if (Water::sVars && !Water::sVars->isLightningFlashing) {
-                    paletteBank[Water::sVars->waterPalette].SetLimitedFade(&sVars->activeHyperSonicPalette_Water[6],
-                                                                           &sVars->activeHyperSonicPalette_Water[12], this->superBlendAmount,
+                    paletteBank[Water::sVars->waterPalette].SetLimitedFade((uint8)&sVars->activeHyperSonicPalette_Water[6],
+                                                                           (uint8)&sVars->activeHyperSonicPalette_Water[12], this->superBlendAmount,
                                                                            this->superColorIndex, this->superColorCount);
                 }
             }
             else {
-                paletteBank[0].SetLimitedFade(&sVars->activeHyperSonicPalette[0], &sVars->activeHyperSonicPalette[12], this->superBlendAmount,
+                paletteBank[0].SetLimitedFade((uint8)&sVars->activeHyperSonicPalette[0], (uint8)&sVars->activeHyperSonicPalette[12],
+                                              this->superBlendAmount,
                                               this->superColorIndex, this->superColorCount);
 
                 if (Water::sVars && !Water::sVars->isLightningFlashing) {
-                    paletteBank[Water::sVars->waterPalette].SetLimitedFade(&sVars->activeHyperSonicPalette_Water[0],
-                                                                           &sVars->activeHyperSonicPalette_Water[12], this->superBlendAmount,
+                    paletteBank[Water::sVars->waterPalette].SetLimitedFade((uint8)&sVars->activeHyperSonicPalette_Water[0],
+                                                                           (uint8)&sVars->activeHyperSonicPalette_Water[12], this->superBlendAmount,
                                                                            this->superColorIndex, this->superColorCount);
                 }
             }
         }
         else {
             if (this->superBlendState & 2) {
-                paletteBank[0].SetLimitedFade(&sVars->activeSuperSonicPalette[6], &sVars->activeSuperSonicPalette[12], this->superBlendAmount,
+                paletteBank[0].SetLimitedFade((uint8)&sVars->activeSuperSonicPalette[6], (uint8)&sVars->activeSuperSonicPalette[12], this->superBlendAmount,
                                               this->superColorIndex, this->superColorCount);
 
                 if (Water::sVars && !Water::sVars->isLightningFlashing) {
-                    paletteBank[Water::sVars->waterPalette].SetLimitedFade(&sVars->activeSuperSonicPalette_Water[6],
-                                                                           &sVars->activeSuperSonicPalette_Water[12], this->superBlendAmount,
+                    paletteBank[Water::sVars->waterPalette].SetLimitedFade((uint8)&sVars->activeSuperSonicPalette_Water[6],
+                                                                           (uint8)&sVars->activeSuperSonicPalette_Water[12], this->superBlendAmount,
                                                                            this->superColorIndex, this->superColorCount);
                 }
             }
             else {
-                paletteBank[0].SetLimitedFade(&sVars->activeSuperSonicPalette[0], &sVars->activeSuperSonicPalette[12], this->superBlendAmount,
+                paletteBank[0].SetLimitedFade((uint8)&sVars->activeSuperSonicPalette[0], (uint8)&sVars->activeSuperSonicPalette[12], this->superBlendAmount,
                                               this->superColorIndex, this->superColorCount);
 
                 if (Water::sVars && !Water::sVars->isLightningFlashing) {
-                    paletteBank[Water::sVars->waterPalette].SetLimitedFade(&sVars->activeSuperSonicPalette_Water[0],
-                                                                           &sVars->activeSuperSonicPalette_Water[12], this->superBlendAmount,
+                    paletteBank[Water::sVars->waterPalette].SetLimitedFade((uint8)&sVars->activeSuperSonicPalette_Water[0],
+                                                                           (uint8)&sVars->activeSuperSonicPalette_Water[12], this->superBlendAmount,
                                                                            this->superColorIndex, this->superColorCount);
                 }
             }
@@ -2595,12 +2597,12 @@ void Player::HandleSuperColors_Sonic(bool32 updatePalette)
 void Player::HandleSuperColors_Tails(bool32 updatePalette)
 {
     if (updatePalette) {
-        paletteBank[0].SetLimitedFade(&sVars->activeSuperTailsPalette[0], &sVars->activeSuperTailsPalette[12], this->superBlendAmount,
+        paletteBank[0].SetLimitedFade((uint8)&sVars->activeSuperTailsPalette[0], (uint8)&sVars->activeSuperTailsPalette[12], this->superBlendAmount,
                                       this->superColorIndex, this->superColorCount);
 
         if (Water::sVars && !Water::sVars->isLightningFlashing) {
-            paletteBank[Water::sVars->waterPalette].SetLimitedFade(&sVars->activeSuperTailsPalette_Water[0],
-                                                                   &sVars->activeSuperTailsPalette_Water[12], this->superBlendAmount,
+            paletteBank[Water::sVars->waterPalette].SetLimitedFade((uint8)&sVars->activeSuperTailsPalette_Water[0],
+                                                                   (uint8)&sVars->activeSuperTailsPalette_Water[12], this->superBlendAmount,
                                                                    this->superColorIndex, this->superColorCount);
         }
     }
@@ -2628,11 +2630,11 @@ void Player::HandleSuperColors_Tails(bool32 updatePalette)
 void Player::HandleSuperColors_Knux(bool32 updatePalette)
 {
     if (updatePalette) {
-        paletteBank[0].SetLimitedFade(&sVars->activeSuperKnuxPalette[0], &sVars->activeSuperKnuxPalette[12], this->superBlendAmount,
+        paletteBank[0].SetLimitedFade((uint8)&sVars->activeSuperKnuxPalette[0], (uint8)&sVars->activeSuperKnuxPalette[12], this->superBlendAmount,
                                       this->superColorIndex, this->superColorCount);
 
         if (Water::sVars && !Water::sVars->isLightningFlashing) {
-            paletteBank[Water::sVars->waterPalette].SetLimitedFade(&sVars->activeSuperKnuxPalette_Water[0], &sVars->activeSuperKnuxPalette_Water[12],
+            paletteBank[Water::sVars->waterPalette].SetLimitedFade((uint8)&sVars->activeSuperKnuxPalette_Water[0], (uint8)&sVars->activeSuperKnuxPalette_Water[12],
                                                                    this->superBlendAmount, this->superColorIndex, this->superColorCount);
         }
     }
@@ -2962,7 +2964,7 @@ void Player::HandleDeath()
         if (this->lives || (globals->medalMods & MEDAL_NOLIVES)) {
             if (Zone::sVars->gotTimeOver && !(globals->medalMods & MEDAL_NOLIVES)) {
                 // Time Over!!
-                this->classID = TYPE_NONE;
+                this->classID = TYPE_BLANK;
 
                 SaveGame::SaveRAM *saveRAM = SaveGame::GetSaveRAM();
                 if (saveRAM) {
@@ -2995,12 +2997,12 @@ void Player::HandleDeath()
 
             Music::FadeOut(0.025f);
             Zone::StartFadeOut_MusicFade(10, 0x000000);
-            this->classID = TYPE_NONE;
+            this->classID = TYPE_BLANK;
         }
         else {
             // GGGGGGGame Over...!
             int32 screenID = 0;
-            this->classID  = TYPE_NONE;
+            this->classID  = TYPE_BLANK;
             if (this->camera) {
                 screenID             = this->camera->screenID;
                 this->camera->target = (Entity *)this->camera;
@@ -7046,7 +7048,7 @@ bool32 Player::CheckBadnikTouch(RSDK::GameObject::Entity *entity, RSDK::Hitbox *
                                 }
                                 else {
                                     Zone::sVars->flickyAttackList[i].slotID        = -1;
-                                    Zone::sVars->flickyAttackList[i].classID       = TYPE_NONE;
+                                    Zone::sVars->flickyAttackList[i].classID       = TYPE_BLANK;
                                     Zone::sVars->flickyAttackList[i].isTargeted    = 0;
                                     Zone::sVars->flickyAttackList[i].hitbox.left   = 0;
                                     Zone::sVars->flickyAttackList[i].hitbox.top    = 0;
@@ -7082,7 +7084,7 @@ bool32 Player::CheckBadnikTouch(RSDK::GameObject::Entity *entity, RSDK::Hitbox *
                                         }
                                         else {
                                             Zone::sVars->flickyAttackList[flicky->attackListPos].slotID        = -1;
-                                            Zone::sVars->flickyAttackList[flicky->attackListPos].classID       = TYPE_NONE;
+                                            Zone::sVars->flickyAttackList[flicky->attackListPos].classID       = TYPE_BLANK;
                                             Zone::sVars->flickyAttackList[flicky->attackListPos].isTargeted    = false;
                                             Zone::sVars->flickyAttackList[flicky->attackListPos].hitbox.left   = 0;
                                             Zone::sVars->flickyAttackList[flicky->attackListPos].hitbox.top    = 0;
@@ -7199,7 +7201,7 @@ bool32 Player::CheckBossHit(RSDK::GameObject::Entity *entity, bool32 enableHyper
                                     }
                                     else {
                                         Zone::sVars->flickyAttackList[flicky->attackListPos].slotID        = -1;
-                                        Zone::sVars->flickyAttackList[flicky->attackListPos].classID       = TYPE_NONE;
+                                        Zone::sVars->flickyAttackList[flicky->attackListPos].classID       = TYPE_BLANK;
                                         Zone::sVars->flickyAttackList[flicky->attackListPos].isTargeted    = false;
                                         Zone::sVars->flickyAttackList[flicky->attackListPos].hitbox.left   = 0;
                                         Zone::sVars->flickyAttackList[flicky->attackListPos].hitbox.top    = 0;

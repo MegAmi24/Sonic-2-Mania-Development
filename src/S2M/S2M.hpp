@@ -3,10 +3,17 @@
 #include "Game.hpp"
 
 // Structs
+
 struct Vector3 {
     int32 x;
     int32 y;
     int32 z;
+};
+
+struct SoundInfo {
+    uint16 playFlags;
+    RSDK::SoundFX sfx;
+    uint16 loopPoint;
 };
 
 // Enums
@@ -257,12 +264,6 @@ struct GlobalVariables {
 
 namespace RSDK
 {
-
-// just the default keymappings for rn, these should be added to game api input.hpp but I cba
-enum KeyMappings {
-    KEYMAP_AUTO_MAPPING = -1,
-    KEYMAP_NO_MAPPING   = 0,
-};
 
 template <typename R> struct Action {
 

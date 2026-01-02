@@ -279,7 +279,7 @@ void SlotMachine::State_Hold()
                 switch (this->slotSpinTimer) {
                     case SlotTimer_Spin:
                         prizeCard = GET_BIT(sVars->slotPrizeL, 4);
-                        if (prizeCard == true) {
+                        if (prizeCard) {
                             sVars->slotPrizeL += 0x20;
                             sVars->slotPrizeL &= 0xFF;
                         }
@@ -317,7 +317,7 @@ void SlotMachine::State_Hold()
                 switch (this->slotSpinTimer) {
                     case SlotTimer_Spin:
                         prizeCard = GET_BIT(sVars->slotPrizeM, 4);
-                        if (prizeCard == true) {
+                        if (prizeCard) {
                             sVars->slotPrizeM += 0x20;
                             sVars->slotPrizeM &= 0xFF;
                         }
@@ -349,7 +349,7 @@ void SlotMachine::State_Hold()
 
                     case SlotTimer_Calc:
                         prizeCard = GET_BIT(sVars->slotPrizeR, 4);
-                        if (prizeCard == true) {
+                        if (prizeCard) {
                             sVars->slotPrizeR += 0x20;
                             sVars->slotPrizeR &= 0xFF;
                         }
@@ -516,6 +516,8 @@ void SlotMachine::State_Wait()
         this->state.Set(&SlotMachine::State_Idle);
     }
 }
+
+void SlotMachine::PlayRingSFX() {}
 
 #if RETRO_REV0U
 void SlotMachine::StaticLoad(Static *sVars)

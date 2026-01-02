@@ -94,7 +94,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GAME_TYPE=0;GAME_NO_GLOBALS;WIN32;_DEBUG;DUCKYSDEVTOOLS_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GAME_TYPE=0;GAME_NO_GLOBALS;GAME_CUSTOMLINKLOGIC=1;WIN32;_DEBUG;DUCKYSDEVTOOLS_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -120,7 +120,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GAME_TYPE=0;GAME_NO_GLOBALS;WIN32;NDEBUG;DUCKYSDEVTOOLS_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GAME_TYPE=0;GAME_NO_GLOBALS;GAME_CUSTOMLINKLOGIC=1;WIN32;NDEBUG;DUCKYSDEVTOOLS_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -147,11 +147,11 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GAME_TYPE=0;GAME_NO_GLOBALS;_DEBUG;DUCKYSDEVTOOLS_EXPORTS;_WINDOWS;_USRDLL;DISCORD_RPC=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GAME_TYPE=0;GAME_NO_GLOBALS;GAME_CUSTOMLINKLOGIC=1;_DEBUG;DUCKYSDEVTOOLS_EXPORTS;_WINDOWS;_USRDLL;DISCORD_RPC=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)DiscordGameSDK/cpp/;$(SolutionDir)GameAPI/CPP/GameAPI/;$(ProjectDir);$(ProjectDir)Objects/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DiscordGameSDK/cpp/;$(SolutionDir)GameAPI/CPP/GameAPI/;$(ProjectDir);$(ProjectDir)Objects\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -173,7 +173,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GAME_TYPE=0;GAME_NO_GLOBALS;NDEBUG;DISCORD_RPC=1;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GAME_TYPE=0;GAME_NO_GLOBALS;GAME_CUSTOMLINKLOGIC=1;NDEBUG;DISCORD_RPC=1;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -181,6 +181,7 @@
       <AdditionalOptions>
       </AdditionalOptions>
       <WholeProgramOptimization>false</WholeProgramOptimization>
+      <Optimization>MaxSpeed</Optimization>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -504,6 +505,7 @@
     <ClInclude Include="..\GameAPI\CPP\GameAPI\Game.hpp" />
     <ClInclude Include="..\GameAPI\CPP\GameAPI\GameObjects.hpp" />
     <ClInclude Include="..\GameAPI\CPP\GameAPI\GameVariables.hpp" />
+    <ClInclude Include="All.hpp" />
     <ClInclude Include="Objects\ARZ\ArrowLauncher.hpp" />
     <ClInclude Include="Objects\ARZ\ARZSetup.hpp" />
     <ClInclude Include="Objects\ARZ\BreakoffPillar.hpp" />
@@ -771,6 +773,7 @@
     <ClInclude Include="Objects\Title\TitleSetup.hpp" />
     <ClInclude Include="Objects\Title\TitleSonic.hpp" />
     <ClInclude Include="Objects\Title\Twinkle.hpp" />
+    <ClInclude Include="PublicFunctions.hpp" />
     <ClInclude Include="S2M.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -230,7 +230,7 @@ void Spring::State_Vertical()
     if (this->direction == FLIP_NONE) {
         for (auto player : GameObject::GetEntities<Player>(FOR_ACTIVE_ENTITIES)) {
             if ((!this->planeFilter || player->collisionPlane == ((uint8)(this->planeFilter - 1) & 1)) && this->interaction) {
-                int32 side = ((this->type == Spring::TubeSpring && player->velocity.y < -0x50000) || this->passThrough)
+                int32 side = ((this->type == Spring::Tube && player->velocity.y < -0x50000) || this->passThrough)
                                  ? player->CheckCollisionPlatform(this, &this->hitbox)
                                  : player->CheckCollisionBox(this, &this->hitbox);
 
@@ -305,7 +305,7 @@ void Spring::State_Vertical()
 
             for (auto player : GameObject::GetEntities<Player>(FOR_ACTIVE_ENTITIES)) {
                 if ((!this->planeFilter || player->collisionPlane == ((uint8)(this->planeFilter - 1) & 1)) && this->interaction) {
-                    int32 side = ((this->type == Spring::TubeSpring && player->velocity.y > 0x50000) || this->passThrough)
+                    int32 side = ((this->type == Spring::Tube && player->velocity.y > 0x50000) || this->passThrough)
                                      ? (player->CheckCollisionPlatform(this, &this->hitbox) * C_BOTTOM)
                                      : player->CheckCollisionBox(this, &this->hitbox);
 

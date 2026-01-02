@@ -10,3 +10,5 @@ log.txt
 
 build/
 .cache
+__pycache__/
+gameapi_util.py

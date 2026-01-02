@@ -111,7 +111,7 @@ void SuperFlicky::StaticUpdate()
         case 1: {
             for (int32 i = 0; i < 0x80; ++i) {
                 Zone::sVars->flickyAttackList[i].slotID  = -1;
-                Zone::sVars->flickyAttackList[i].classID = TYPE_NONE;
+                Zone::sVars->flickyAttackList[i].classID = TYPE_BLANK;
             }
 
             Entity *target           = GameObject::Get(sVars->targetPlayerID);
@@ -149,7 +149,7 @@ void SuperFlicky::StaticUpdate()
                                         flicky->attackListPos = -1;
                                 }
                                 Zone::sVars->flickyAttackList[i].slotID     = -1;
-                                Zone::sVars->flickyAttackList[i].classID    = TYPE_NONE;
+                                Zone::sVars->flickyAttackList[i].classID    = TYPE_BLANK;
                                 Zone::sVars->flickyAttackList[i].isTargeted = false;
                             }
                         }
@@ -163,7 +163,7 @@ void SuperFlicky::StaticUpdate()
             for (int32 i = 0; i < 0x80; ++i) {
                 if (!Zone::sVars->hyperList[i].classID) {
                     Zone::sVars->flickyAttackList[i].slotID        = -1;
-                    Zone::sVars->flickyAttackList[i].classID       = TYPE_NONE;
+                    Zone::sVars->flickyAttackList[i].classID       = TYPE_BLANK;
                     Zone::sVars->flickyAttackList[i].isTargeted    = false;
                     Zone::sVars->flickyAttackList[i].hitbox.left   = 0;
                     Zone::sVars->flickyAttackList[i].hitbox.top    = 0;
@@ -328,7 +328,7 @@ void SuperFlicky::HandleAttack()
 
         if (clear) {
             Zone::sVars->flickyAttackList[this->attackListPos].slotID        = -1;
-            Zone::sVars->flickyAttackList[this->attackListPos].classID       = TYPE_NONE;
+            Zone::sVars->flickyAttackList[this->attackListPos].classID       = TYPE_BLANK;
             Zone::sVars->flickyAttackList[this->attackListPos].isTargeted    = false;
             Zone::sVars->flickyAttackList[this->attackListPos].hitbox.left   = 0;
             Zone::sVars->flickyAttackList[this->attackListPos].hitbox.top    = 0;

@@ -363,6 +363,17 @@ void Tornado::State_FlyAway_Left()
     this->active = ACTIVE_BOUNDS;
 }
 
+#if RETRO_REV0U
+void Tornado::StaticLoad(Static *sVars)
+{
+    RSDK_INIT_STATIC_VARS(Tornado);
+
+    int32 flameOffsets[] = { -0x20000, -0x10000, 0, 0x10000, 0x20000 };
+
+    memcpy(sVars->flameOffsets, flameOffsets, sizeof(flameOffsets));
+}
+#endif
+
 #if RETRO_INCLUDE_EDITOR
 void Tornado::EditorDraw()
 {
@@ -374,17 +385,6 @@ void Tornado::EditorDraw()
     this->animatorPropeller.DrawSprite(nullptr, false);
     this->animatorTornado.DrawSprite(nullptr, false);
 }
-
-#if RETRO_REV0U
-void Tornado::StaticLoad(Static *sVars)
-{
-    RSDK_INIT_STATIC_VARS(Tornado);
-
-    int32 flameOffsets[] = { -0x20000, -0x10000, 0, 0x10000, 0x20000 };
-
-    memcpy(sVars->flameOffsets, flameOffsets, sizeof(flameOffsets));
-}
-#endif
 
 void Tornado::EditorLoad() { sVars->aniFrames.Load("SCZ/Tornado.bin", SCOPE_STAGE); }
 #endif

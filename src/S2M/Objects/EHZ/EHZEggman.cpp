@@ -85,7 +85,7 @@ void EHZEggman::Update()
         }
     }
 
-    if (this->exploding == true) { // checks at any point if the object is exploding yet lol
+    if (this->exploding) { // checks at any point if the object is exploding yet lol
         if ((Zone::sVars->timer &= 7) == 0) {
             Vector2 explosionPos;
             explosionPos.x = this->position.x + Math::Rand(TO_FIXED(-48), TO_FIXED(48));

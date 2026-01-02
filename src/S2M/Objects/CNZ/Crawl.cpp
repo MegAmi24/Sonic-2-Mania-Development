@@ -111,7 +111,7 @@ void Crawl::State_Moving()
 		this->state.Set(&Crawl::State_Idle);
 	}
 
-	if (this->foundTarget == true) {
+	if (this->foundTarget) {
 		this->prevState = this->state;
 		this->state.Set(&Crawl::State_Defend);
 		this->animator.SetAnimation(sVars->aniFrames, Idle, false, 0);
@@ -130,7 +130,7 @@ void Crawl::State_Idle()
 		this->state.Set(&Crawl::State_Moving);
 	}
 
-	if (this->foundTarget == true) {
+	if (this->foundTarget) {
 		this->prevState = this->state;
 		this->state.Set(&Crawl::State_Defend);
 	}
@@ -142,7 +142,7 @@ void Crawl::State_Defend()
 {
 	this->animator.SetAnimation(sVars->aniFrames, Defend, false, 0);
 
-	if (this->foundTarget == false) {
+	if (!this->foundTarget) {
 		this->state = this->prevState;
 	}
 }

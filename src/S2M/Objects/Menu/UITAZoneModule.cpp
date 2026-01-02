@@ -325,7 +325,7 @@ void UITAZoneModule::State_NotSelected()
 
 void UITAZoneModule::State_Selected()
 {
-    if (this->reverseVelocity == true) {
+    if (this->reverseVelocity) {
         this->buttonBounceOffset -= this->buttonBounceVelocity;
         if (this->buttonBounceOffset <= 0x20000 && this->buttonBounceVelocity > 0) {
             this->buttonBounceOffset   = 0;

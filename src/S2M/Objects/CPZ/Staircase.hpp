@@ -66,7 +66,7 @@ struct Staircase : RSDK::GameObject::Entity {
     // FUNCTIONS
     // ==============================
 
-    static Soundboard::SoundInfo SfxCheck_HitBlocks();
+    static SoundInfo SfxCheck_HitBlocks();
 
     void State_Idle();
     void State_Wait();

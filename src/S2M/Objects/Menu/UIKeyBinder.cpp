@@ -42,9 +42,9 @@ void UIKeyBinder::Update()
     if (this->lasyKeyMap == keyMap) {
         keyMapChanged = false;
     }
-    else if (keyMap == KEYMAP_AUTO_MAPPING) {
+    else if (keyMap == Input::INPUT_AUTOASSIGN) {
         this->keyAnimator.SetAnimation(&sVars->aniFrames, UIKeyBinder::GetButtonListID(), true, 0);
-        this->lasyKeyMap = KEYMAP_AUTO_MAPPING;
+        this->lasyKeyMap = Input::INPUT_AUTOASSIGN;
         keyMapChanged    = false;
     }
     else {
@@ -73,8 +73,8 @@ void UIKeyBinder::Update()
                     if (str != -1)
                         Localization::GetString(&string, str);
 
-                    UIKeyBinder::SetMappings(this->type, inputID, KEYMAP_NO_MAPPING);
-                    this->lasyKeyMap = KEYMAP_NO_MAPPING;
+                    UIKeyBinder::SetMappings(this->type, inputID, Input::INPUT_NONE);
+                    this->lasyKeyMap = Input::INPUT_NONE;
 
                     Action<void> callbackYes = {};
                     callbackYes.Set(&UIKeyBinder::MoveKeyToActionCB_Yes);
@@ -114,7 +114,7 @@ void UIKeyBinder::Update()
 
             int32 frame = UIButtonPrompt::MappingsToFrame(this->lasyKeyMap);
             this->keyAnimator.SetAnimation(sVars->aniFrames, UIKeyBinder::GetButtonListID(), true, frame);
-            UIKeyBinder::SetMappings(inputID, this->type, KEYMAP_AUTO_MAPPING);
+            UIKeyBinder::SetMappings(inputID, this->type, Input::INPUT_AUTOASSIGN);
 
             sVars->sfxFail.Play(false, 255);
         }
@@ -210,7 +210,7 @@ int32 UIKeyBinder::GetMappings(int32 input, int32 button)
         default: break;
     }
 
-    return KEYMAP_NO_MAPPING;
+    return Input::INPUT_NONE;
 }
 
 void UIKeyBinder::SetMappings(int32 input, int32 button, int32 keyMap)
@@ -316,7 +316,7 @@ void UIKeyBinder::SelectedCB()
 
         UIWidgets::sVars->sfxAccept.Play(false, 255);
 
-        UIKeyBinder::SetMappings(this->inputID + 1, this->type, KEYMAP_AUTO_MAPPING);
+        UIKeyBinder::SetMappings(this->inputID + 1, this->type, Input::INPUT_AUTOASSIGN);
     }
 }
 
@@ -387,9 +387,9 @@ void UIKeyBinder::MoveKeyToActionCB_No()
     UIKeyBinder *binder = sVars->activeBinder;
 
     if (binder->state.Matches(&UIKeyBinder::State_Selected)) {
-        UIKeyBinder::SetMappings(binder->inputID + 1, binder->type, KEYMAP_AUTO_MAPPING);
-        sVars->activeInputID  = KEYMAP_AUTO_MAPPING;
-        sVars->activeButtonID = KEYMAP_AUTO_MAPPING;
+        UIKeyBinder::SetMappings(binder->inputID + 1, binder->type, Input::INPUT_AUTOASSIGN);
+        sVars->activeInputID  = Input::INPUT_AUTOASSIGN;
+        sVars->activeButtonID = Input::INPUT_AUTOASSIGN;
     }
 }
 
@@ -402,7 +402,7 @@ void UIKeyBinder::MoveKeyToActionCB_Yes()
         int32 keyMap = UIKeyBinder::GetMappings(sVars->activeInputID, sVars->activeButtonID);
 
         // Remove other button's keyMap
-        UIKeyBinder::SetMappings(sVars->activeInputID, sVars->activeButtonID, KEYMAP_NO_MAPPING);
+        UIKeyBinder::SetMappings(sVars->activeInputID, sVars->activeButtonID, Input::INPUT_NONE);
 
         // Give the keyMap to the new button
         UIKeyBinder::SetMappings(binder->inputID + 1, binder->type, keyMap);
@@ -417,8 +417,8 @@ void UIKeyBinder::MoveKeyToActionCB_Yes()
         sVars->activeBinder = nullptr;
 
         Graphics::SetVideoSetting(VIDEOSETTING_CHANGED, false);
-        sVars->activeInputID  = KEYMAP_AUTO_MAPPING;
-        sVars->activeButtonID = KEYMAP_AUTO_MAPPING;
+        sVars->activeInputID  = Input::INPUT_AUTOASSIGN;
+        sVars->activeButtonID = Input::INPUT_AUTOASSIGN;
     }
 }
 

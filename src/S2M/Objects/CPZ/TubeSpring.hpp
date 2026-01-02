@@ -11,6 +11,17 @@ struct TubeSpring : RSDK::GameObject::Entity {
     // ENUMS
     // ==============================
 
+    enum Types {
+        YellowVertical,
+        RedVertical,
+        YellowHorizontal,
+        RedHorizontal,
+        YellowDiagonal,
+        RedDiagonal,
+
+        Tube = 0xFF,
+    };
+
     // ==============================
     // STRUCTS
     // ==============================
@@ -31,7 +42,7 @@ struct TubeSpring : RSDK::GameObject::Entity {
 
     // "Inherits" Spring
     RSDK::StateMachine<TubeSpring> state;
-    Spring::Types type;
+    TubeSpring::Types type;
     RSDK::FlipFlags flipFlag;
     uint8 planeFilter;
     int32 timer;

@@ -1,17 +1,15 @@
 #include "S2M.hpp"
 #include "Helpers/RPCHelpers.hpp"
+#if RETRO_USE_MOD_LOADER
+#include "PublicFunctions.hpp"
+#endif
 
 using namespace RSDK;
-
-#if RETRO_USE_MOD_LOADER
-extern "C" {
-DLLExport bool32 LinkModLogic(EngineInfo *info, const char *id);
-}
-#endif
 
 GlobalVariables::Constructor c;
 GlobalVariables *globals = nullptr;
 
+#if RETRO_REV0U
 void GlobalVariables::Init(void *g)
 {
     GlobalVariables *globals = (GlobalVariables *)g;
@@ -42,26 +40,29 @@ void GlobalVariables::Init(void *g)
 
     globals->gravityDir        = CMODE_FLOOR;
     globals->tileCollisionMode = TILECOLLISION_DOWN;
+}
+#endif
 
+void LinkGameLogic(RSDK::EngineInfo *info)
+{
+#if DISCORD_RPC
     InitDiscord(); // initializes the discord core at startup
+#endif
+#if RETRO_USE_MOD_LOADER
+    GameLogic::InitPublicFunctions();
+#endif
 }
 
-void InitModAPI(void) {  }
-
 #if RETRO_USE_MOD_LOADER
-#define ADD_PUBLIC_FUNC(func) Mod.AddPublicFunction(#func, (void *)(func))
-
-void InitModAPI(void);
-
 bool32 LinkModLogic(EngineInfo *info, const char *id)
 {
-#if !RETRO_REV01
+#if RETRO_REV02
     LinkGameLogicDLL(info);
 #else
     LinkGameLogicDLL(*info);
 #endif
 
-    InitModAPI();
+    RSDK::Mod::modID = id;
 
     return true;
 }

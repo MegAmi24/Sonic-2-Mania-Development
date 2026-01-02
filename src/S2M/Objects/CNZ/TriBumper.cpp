@@ -83,8 +83,7 @@ void TriBumper::Update()
                         playerVel -= currentPlayer->position.x;
                         if (playerVel >= 0x200000) {
                             currentPlayer->velocity.x = -0xA0000;
-                        TriBumper:
-                            HandleBump();
+                            TriBumper::HandleBump();
                         }
                         else {
                             playerVel = this->position.x;

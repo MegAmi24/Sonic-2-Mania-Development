@@ -18,11 +18,6 @@ struct Soundboard : RSDK::GameObject::Entity {
     // ==============================
     // STRUCTS
     // ==============================
-    struct SoundInfo {
-        uint16 playFlags;
-        RSDK::SoundFX sfx;
-        uint16 loopPoint;
-    };
 
     // ==============================
     // STATIC VARS

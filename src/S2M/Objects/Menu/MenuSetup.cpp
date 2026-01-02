@@ -47,9 +47,9 @@ void MenuSetup::StaticUpdate()
 
         UIControl *mainMenu = nullptr; // this will crash if no entities have "Main Menu" as the tag, make sure one does!!!
         for (auto control : GameObject::GetEntities<UIControl>(FOR_ALL_ENTITIES)) {
-            if (tag.Compare(&tag, &control->tag, false)) {
+            if (String::Compare(&tag, &control->tag, false)) {
                 mainMenu = control;
-                break;
+                foreach_break;
             }
         }
 

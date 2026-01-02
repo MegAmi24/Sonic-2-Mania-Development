@@ -18,7 +18,7 @@ struct Spring : RSDK::GameObject::Entity {
         YellowDiagonal,
         RedDiagonal,
 
-        TubeSpring = 0xFF,
+        Tube = 0xFF,
     };
 
     // ==============================
