@@ -2,6 +2,10 @@
 
 #include "Game.hpp"
 
+#ifndef DISCORD_RPC
+#define DISCORD_RPC (0)
+#endif
+
 // Structs
 
 struct Vector3 {
