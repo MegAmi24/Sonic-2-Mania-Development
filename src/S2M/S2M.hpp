@@ -10,12 +10,6 @@ struct Vector3 {
     int32 z;
 };
 
-struct SoundInfo {
-    uint16 playFlags;
-    RSDK::SoundFX sfx;
-    uint16 loopPoint;
-};
-
 // Enums
 
 enum GameModes {

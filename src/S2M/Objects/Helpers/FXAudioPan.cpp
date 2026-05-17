@@ -63,7 +63,7 @@ void FXAudioPan::StageLoad()
     Soundboard::LoadSfx(FXAudioPan::CheckCB, FXAudioPan::UpdateCB);
 }
 
-SoundInfo FXAudioPan::CheckCB()
+Soundboard::SoundInfo FXAudioPan::CheckCB()
 {
     int32 worldCenterX = (screenInfo->position.x + screenInfo->center.x) << 16;
     int32 worldCenterY = (screenInfo->position.y + screenInfo->center.y) << 16;
@@ -117,7 +117,7 @@ SoundInfo FXAudioPan::CheckCB()
     sVars->activeCount1 = count;
     sVars->activeCount2 = count;
 
-    SoundInfo info = {};
+    Soundboard::SoundInfo info = {};
     info.playFlags             = (uint16)(sVars->activeCount1 > 0 ? Soundboard::PlayOnStart : Soundboard::PlayNever);
     info.sfx                   = sfx;
     info.loopPoint             = loopPoint;

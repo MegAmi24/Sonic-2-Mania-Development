@@ -70,7 +70,7 @@ struct MetalArm : RSDK::GameObject::Entity {
     // FUNCTIONS
     // ==============================
 
-    static SoundInfo SfxCheck_MetalArm();
+    static Soundboard::SoundInfo SfxCheck_MetalArm();
     RSDK::Vector2 GetArmPosition();
     void CheckPlayerCollisions();
     void State_Idle();

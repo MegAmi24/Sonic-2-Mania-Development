@@ -296,7 +296,7 @@ void OOZSetup::StageLoad()
         Soundboard::sVars->sfxFadeOutDuration[sfxID] = 30;
 }
 
-SoundInfo OOZSetup::SfxCheck_Flame2()
+Soundboard::SoundInfo OOZSetup::SfxCheck_Flame2()
 {
     int32 count = 0;
 
@@ -313,7 +313,7 @@ SoundInfo OOZSetup::SfxCheck_Flame2()
     // return count > 0;
     SoundFX flameSFX;
     flameSFX.Get("Stage/Flame2.wav");
-    SoundInfo info = {};
+    Soundboard::SoundInfo info = {};
     info.playFlags             = count > 0;
     info.sfx                   = flameSFX;
     info.loopPoint             = true;
@@ -321,7 +321,7 @@ SoundInfo OOZSetup::SfxCheck_Flame2()
     return info;
 }
 
-SoundInfo OOZSetup::SfxCheck_Slide()
+Soundboard::SoundInfo OOZSetup::SfxCheck_Slide()
 {
     int32 count = 0;
 
@@ -335,7 +335,7 @@ SoundInfo OOZSetup::SfxCheck_Slide()
     // return count > 0;
     SoundFX slideSFX;
     slideSFX.Get("OOZ/Slide.wav");
-    SoundInfo info = {};
+    Soundboard::SoundInfo info = {};
     info.playFlags             = count > 0;
     info.sfx                   = slideSFX;
     info.loopPoint             = 12382;
@@ -343,12 +343,12 @@ SoundInfo OOZSetup::SfxCheck_Slide()
     return info;
 }
 
-SoundInfo OOZSetup::SfxCheck_OilSwim()
+Soundboard::SoundInfo OOZSetup::SfxCheck_OilSwim()
 {
     // return sVars->swimmingPlayerCount > 0;
     SoundFX swimSFX;
     swimSFX.Get("OOZ/OilSwim.wav");
-    SoundInfo info = {};
+    Soundboard::SoundInfo info = {};
     info.playFlags             = sVars->swimmingPlayerCount > 0;
     info.sfx                   = swimSFX;
     info.loopPoint             = true;
