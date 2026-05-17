@@ -1822,7 +1822,8 @@ static void InitPublicFunctions()
     ADD_PUBLIC_FUNC(UITAZoneModule::State_HasBeenSelected);
 
     // Menu/UITransition
-    // ADD_PUBLIC_FUNC(UITransition::StartTransition);
+    GameLogic::AddPublicFunction("UITransition::StartTransition",
+                                 static_cast<void (*)(RSDK::Action<void>, int32, bool32)>(&UITransition::StartTransition));
     ADD_PUBLIC_FUNC(UITransition::MatchNewTag);
     ADD_PUBLIC_FUNC(UITransition::SetNewTag);
     ADD_PUBLIC_FUNC(UITransition::DrawFade);
